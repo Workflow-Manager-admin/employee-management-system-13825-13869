@@ -9,6 +9,38 @@ This project provides a minimal React template with a clean, modern UI and minim
 - **Fast**: Minimal dependencies for quick loading times
 - **Simple**: Easy to understand and modify
 
+## API Integration & Configuration
+
+The React frontend communicates with the Django backend via modularized API services located in `src/api/`:
+- `src/api/api.js`: Central API logic, handles base URL and auth.
+- `src/api/users.js`: User endpoint services (`/api/users/`).
+- `src/api/employees.js`: Employee endpoint services (`/api/employees/`).
+- `src/api/attendance.js`: Attendance endpoint services (`/api/attendance/`).
+- `src/api/payroll.js`: Payroll endpoint services (`/api/payroll/`).
+
+### Configuring the Backend API URL
+
+1. Copy `.env.example` to `.env` in the project root.
+2. Set the `REACT_APP_API_BASE_URL` to point to your Django backend — usually `http://localhost:8000/api/` for local development.
+
+> Your API modules will use this env variable for all backend requests. You can change environments (production/staging/dev) by swapping out this value.
+
+### Importing and Using API Services
+
+All data operations should be performed via these modules:
+```js
+import { getEmployees } from "./api/employees";
+import { getUsers } from "./api/users";
+// etc.
+
+useEffect(() => {
+  getEmployees().then(data => setEmployees(data));
+}, []);
+```
+
+- Avoid direct fetch calls to backend; use the provided API functions for consistency and error handling.
+- JWT tokens (when supported) are automatically attached if present in localStorage as `"jwt"`.
+
 ## Getting Started
 
 In the project directory, you can run:
