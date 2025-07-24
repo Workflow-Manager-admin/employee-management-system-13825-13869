@@ -1,0 +1,120 @@
+.main-layout {
+  display: flex;
+  min-height: 100vh;
+  background: var(--bg-secondary);
+}
+
+.sidebar {
+  width: 220px;
+  background: var(--bg-primary);
+  border-right: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.5rem 0 .5rem 0;
+}
+
+.sidebar-header .app-name {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  display: block;
+  margin: 0 0 1.5rem 2rem;
+}
+
+.user-info {
+  margin: 0 0 1rem 2rem;
+  color: var(--text-primary);
+  font-size: 1rem;
+}
+
+.user-role {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.nav-list {
+  list-style: none;
+  padding: 0 0 0 2rem;
+  flex: 1 1 auto;
+  margin: 0;
+}
+
+.nav-list li {
+  margin-bottom: 1rem;
+}
+
+.nav-list li .active {
+  font-weight: 600;
+  color: var(--button-bg);
+}
+
+.nav-list a {
+  text-decoration: none;
+  color: var(--text-primary);
+  transition: color 0.2s;
+  font-size: 1.08rem;
+}
+
+.nav-list a:hover {
+  color: var(--button-bg);
+}
+
+.sidebar-footer {
+  margin-left: 2rem;
+}
+
+.btn-logout {
+  background: var(--button-bg);
+  color: var(--button-text);
+  border: none;
+  border-radius: 6px;
+  padding: 8px 15px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.btn-logout:hover,
+.btn-logout:focus {
+  opacity: 0.92;
+}
+
+.content {
+  flex: 1 1 auto;
+  padding: 2rem 2.5rem;
+  background: var(--bg-secondary);
+  min-height: 100vh;
+}
+
+@media (max-width: 900px) {
+  .main-layout {
+    flex-direction: column;
+  }
+  .sidebar {
+    width: 100%;
+    flex-direction: row;
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+    min-height: unset;
+    padding: 0;
+  }
+  .nav-list, .sidebar-header, .sidebar-footer {
+    margin-left: 0;
+    padding: 0 1rem;
+  }
+  .nav-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0;
+  }
+  .nav-list li {
+    margin: .5rem 1rem .5rem 0;
+  }
+  .sidebar-footer {
+    margin: 0;
+    padding: 0 1rem;
+  }
+}
